@@ -44,7 +44,8 @@ jobs:
             git fetch --no-tags origin catalog
             base=$(git rev-parse FETCH_HEAD)
           else
-            base=$(git mktree </dev/null | git commit-tree -m 'Initialize generated catalog')
+            tree=$(git mktree </dev/null)
+            base=$(git commit-tree "$tree" -m 'Initialize generated catalog')
           fi
           git worktree add --detach "$work" "$base"
           git -C "$work" rm -r --ignore-unmatch .
@@ -55,7 +56,8 @@ jobs:
           python3 tools/catalog.py index "$entries" "$GITHUB_SHA" "$asset_revision" "$work/catalog.json"
           git -C "$work" add catalog.json
           git -C "$work" commit -m "Publish catalog from $GITHUB_SHA"
+          published=$(git -C "$work" rev-parse HEAD)
           git fetch --no-tags origin main
           if [[ "$(git rev-parse FETCH_HEAD)" == "$GITHUB_SHA" ]]; then
-            git -C "$work" push origin HEAD:refs/heads/catalog
+            git push origin "$published:refs/heads/catalog"
           fi
