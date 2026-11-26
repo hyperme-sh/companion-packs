@@ -1,0 +1,61 @@
+name: Companion pack catalog
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - run: python3 tools/catalog.py check
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: publish-companion-catalog
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Publish catalog and immutable pack artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          if [[ "$(git rev-parse FETCH_HEAD)" != "$GITHUB_SHA" ]]; then
+            exit 0
+          fi
+          work="$RUNNER_TEMP/companion-catalog"
+          artifacts="$RUNNER_TEMP/companion-artifacts"
+          entries="$RUNNER_TEMP/companion-entries.json"
+          python3 tools/catalog.py build "$artifacts" "$entries"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          branch=$(git ls-remote --heads origin refs/heads/catalog)
+          if [[ -n "$branch" ]]; then
+            git fetch --no-tags origin catalog
+            base=$(git rev-parse FETCH_HEAD)
+          else
+            base=$(git mktree </dev/null | git commit-tree -m 'Initialize generated catalog')
+          fi
+          git worktree add --detach "$work" "$base"
+          git -C "$work" rm -r --ignore-unmatch .
+          cp -R "$artifacts/." "$work/"
+          git -C "$work" add packs
+          git -C "$work" commit --allow-empty -m "Build pack archives from $GITHUB_SHA"
+          asset_revision=$(git -C "$work" rev-parse HEAD)
+          python3 tools/catalog.py index "$entries" "$GITHUB_SHA" "$asset_revision" "$work/catalog.json"
+          git -C "$work" add catalog.json
+          git -C "$work" commit -m "Publish catalog from $GITHUB_SHA"
+          git fetch --no-tags origin main
+          if [[ "$(git rev-parse FETCH_HEAD)" == "$GITHUB_SHA" ]]; then
+            git -C "$work" push origin HEAD:refs/heads/catalog
+          fi
