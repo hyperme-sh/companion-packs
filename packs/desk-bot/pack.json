@@ -2,7 +2,18 @@
   "format": 1,
   "name": "Desk Bot",
   "sprites": {
-    "default": { "frames": ["idle.png"] },
-    "state:automation": { "frames": ["working.png"] }
+    "default": {
+      "frames": [
+        "idle.png"
+      ]
+    },
+    "state:automation": {
+      "frames": [
+        "working.png"
+      ]
+    }
+  },
+  "voice": {
+    "state:automation": "ready.wav"
   }
 }

@@ -1,6 +1,8 @@
 """Draw the original Desk Bot sprites as transparent 400 by 520 PNGs."""
 
+import math
 import struct
+import wave
 import zlib
 from pathlib import Path
 
@@ -48,7 +50,23 @@ def sprite(active):
             + chunk(b"IDAT", zlib.compress(raw, 9)) + chunk(b"IEND", b""))
 
 
+def recording(filename):
+    rate = 16000
+    samples = bytearray()
+    for frequency in (330, 494):
+        for index in range(2200):
+            edge = min(index / 160, (2199 - index) / 160, 1)
+            tone = math.sin(2 * math.pi * frequency * index / rate)
+            overtone = 0.24 * math.sin(6 * math.pi * frequency * index / rate)
+            samples.extend(struct.pack("<h", round(2900 * edge * (tone + overtone))))
+        samples.extend(b"\0" * 1920)
+    with wave.open(str(filename), "wb") as output:
+        output.setparams((1, 2, rate, 0, "NONE", "not compressed"))
+        output.writeframes(samples)
+
+
 if __name__ == "__main__":
     folder = Path(__file__).resolve().parents[1]
     (folder / "idle.png").write_bytes(sprite(False))
     (folder / "working.png").write_bytes(sprite(True))
+    recording(folder / "ready.wav")

@@ -46,3 +46,5 @@ and `packs/<id>.wav`. The archive is a JSON object with `format: 1` and a
 with flat names, pack assets, license, and attribution. The source revision
 identifies the accepted contributor commit. The asset revision independently
 identifies the downloadable bytes. See [Visor #359](https://github.com/hyperme-sh/visor/issues/359).
+
+The repository tooling and guide use the [MIT license](LICENSE). Each pack declares its own media license. Desk Bot includes an original synthesized two-tone voice cue.
