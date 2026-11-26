@@ -57,7 +57,7 @@ def read_file(path, limit):
 
 def label(value, maximum):
     return (isinstance(value, str) and bool(value.strip()) and len(value.encode()) <= maximum
-            and all(ord(c) >= 32 and ord(c) != 127 for c in value))
+            and all(ord(c) >= 32 and not 127 <= ord(c) <= 159 for c in value))
 
 
 def cue_key(key):
@@ -173,12 +173,15 @@ def read_pack(folder):
     entry = {"id": pack_id, "name": manifest["name"], "author": identity["author"], "license": identity["license"],
              "media": (["appearance"] if art else []) + (["voice"] if voice_names else []), "archive": metadata(bundle)}
     outputs = {f"{pack_id}.pack.json": bundle}
-    for key, supported, extension in [("art_preview", art, ".png"), ("voice_preview", voice_names, ".wav")]:
-        if key in identity:
-            name = identity[key]
-            require(safe_name(name) and name in supported, f"{key} must name a referenced asset")
-            outputs[pack_id + extension] = files[name]
-            entry[key] = metadata(files[name])
+    for key, supported, extension in [("art_preview", sprite_names or cursor_names, ".png"),
+                                       ("voice_preview", voice_names, ".wav")]:
+        allowed = art if key == "art_preview" else supported
+        if key not in identity and not supported:
+            continue
+        name = identity[key] if key in identity else min(supported)
+        require(safe_name(name) and name in allowed, f"{key} must name a referenced asset")
+        outputs[pack_id + extension] = files[name]
+        entry[key] = metadata(files[name])
     return entry, outputs
 
 

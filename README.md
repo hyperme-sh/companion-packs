@@ -15,9 +15,11 @@ Add a `LICENSE` that permits sharing and modification. Include attribution for
 all artwork and recordings and permission to redistribute and remix a voice.
 Contributors can include editable sources under `source/` for other creators.
 
-Create `catalog.json` in the pack folder with your credit, license identifier,
-and the previews to show in Visor. An appearance preview can use a referenced
-sprite or cursor. A voice preview uses a referenced recording.
+Create `catalog.json` in the pack folder with your credit and license identifier.
+You can name the previews to show in Visor. An appearance preview can use a
+referenced sprite or cursor. A voice preview uses a referenced recording. If
+you leave a preview unspecified, the catalog picks one from the referenced
+assets, preferring a sprite over a cursor when both are available.
 
 ```json
 {
@@ -38,7 +40,7 @@ or local installation remains an independent way to share and remix a pack.
 The `catalog` branch serves `catalog.json` over GitHub raw content. Format 1
 contains a source revision, an immutable asset revision, and the list of packs.
 Each pack lists its ID, name, author, license, supported media and SHA-256 and
-byte length for its archive and optional previews.
+byte length for its archive and the previews for its media.
 
 At the asset revision the files are `packs/<id>.pack.json`, `packs/<id>.png`
 and `packs/<id>.wav`. The archive is a JSON object with `format: 1` and a
