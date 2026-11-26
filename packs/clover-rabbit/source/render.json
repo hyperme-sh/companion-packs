@@ -1,0 +1,15 @@
+{
+  "frames": {
+    "idle.png": "open",
+    "sleeping.png": "asleep"
+  },
+  "voice": {
+    "variant": "en-gb+f4",
+    "pitch": 71,
+    "speed": 185,
+    "lines": {
+      "working.wav": "Ready to hop in.",
+      "sleeping.wav": "Time to rest."
+    }
+  }
+}

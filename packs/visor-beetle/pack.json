@@ -1,0 +1,102 @@
+{
+  "format": 1,
+  "name": "Visor Beetle",
+  "sprites": {
+    "state:idle": {
+      "frames": [
+        "idle_0_400x520.png",
+        "idle_1_400x520.png",
+        "idle_2_400x520.png",
+        "idle_3_400x520.png",
+        "idle_4_400x520.png",
+        "idle_5_400x520.png",
+        "idle_6_400x520.png",
+        "idle_7_400x520.png"
+      ],
+      "ms_per_frame": 150,
+      "loop": true
+    },
+    "state:automation": {
+      "frames": [
+        "automation_0_400x520.png",
+        "automation_1_400x520.png",
+        "automation_2_400x520.png",
+        "automation_3_400x520.png",
+        "automation_4_400x520.png",
+        "automation_5_400x520.png",
+        "automation_6_400x520.png",
+        "automation_7_400x520.png"
+      ],
+      "ms_per_frame": 90,
+      "loop": true
+    },
+    "state:upgrading": {
+      "frames": [
+        "upgrading_0_400x520.png",
+        "upgrading_1_400x520.png",
+        "upgrading_2_400x520.png",
+        "upgrading_3_400x520.png",
+        "upgrading_4_400x520.png",
+        "upgrading_5_400x520.png",
+        "upgrading_6_400x520.png",
+        "upgrading_7_400x520.png"
+      ],
+      "ms_per_frame": 130,
+      "loop": true
+    },
+    "state:disconnected": {
+      "frames": [
+        "disconnected_0_400x520.png",
+        "disconnected_1_400x520.png",
+        "disconnected_2_400x520.png",
+        "disconnected_3_400x520.png",
+        "disconnected_4_400x520.png",
+        "disconnected_5_400x520.png"
+      ],
+      "ms_per_frame": 110,
+      "loop": true
+    },
+    "state:sleeping": {
+      "frames": [
+        "sleeping_0_400x520.png",
+        "sleeping_1_400x520.png",
+        "sleeping_2_400x520.png",
+        "sleeping_3_400x520.png",
+        "sleeping_4_400x520.png",
+        "sleeping_5_400x520.png",
+        "sleeping_6_400x520.png",
+        "sleeping_7_400x520.png"
+      ],
+      "ms_per_frame": 260,
+      "loop": true
+    },
+    "default": {
+      "frames": [
+        "idle_0_400x520.png",
+        "idle_1_400x520.png",
+        "idle_2_400x520.png",
+        "idle_3_400x520.png",
+        "idle_4_400x520.png",
+        "idle_5_400x520.png",
+        "idle_6_400x520.png",
+        "idle_7_400x520.png"
+      ],
+      "ms_per_frame": 150,
+      "loop": true
+    }
+  },
+  "cursor": {
+    "pointer": "pointer_32.png",
+    "crawl": "crawl_32.png",
+    "fly": "fly_32.png",
+    "reach": "reach_32.png",
+    "click1": "click1_32.png",
+    "click2": "click2_32.png",
+    "type1": "type1_32.png",
+    "type2": "type2_32.png",
+    "busy1": "busy1_32.png",
+    "busy2": "busy2_32.png",
+    "busy3": "busy3_32.png",
+    "busy4": "busy4_32.png"
+  }
+}

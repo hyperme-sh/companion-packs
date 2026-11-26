@@ -4,6 +4,28 @@ Community appearances, cursor art, and recorded voices for Visor. The [Visor
 pack guide](https://github.com/hyperme-sh/visor/blob/main/docs/companion-packs.md)
 defines format 1 and explains how to install a pack locally.
 
+## Packs to remix
+
+| Pack | Appearance | Voice |
+| --- | --- | --- |
+| [Ember Cat](packs/ember-cat) | Orange tabby with a slow blink | Warm, mid-pitched English |
+| [Scout Dog](packs/scout-dog) | Golden puppy that wags while working | Low, steady English |
+| [Clover Rabbit](packs/clover-rabbit) | Lavender rabbit with a sleeping pose | Bright, high-pitched English |
+| [Visor Beetle](packs/visor-beetle) | Original Visor animation loops and cursor sprites | Pair it with any installed voice |
+| [Desk Bot](packs/desk-bot) | Two pixel-art poses | Two-tone electronic cue |
+
+The three animal packs include editable SVGs, voice lines, and voice settings in
+their `source/` folders. With Python 3, `rsvg-convert`, and `espeak-ng`
+available, regenerate the PNG and WAV files for a pack after editing its source.
+
+```sh
+python3 tools/render_examples.py packs/ember-cat
+```
+
+Visor uses the included PNG and WAV files. Pick an appearance and a voice
+independently to try them together. The [beetle remix guide](packs/visor-beetle/source/README.md)
+points to its original artwork and timing references.
+
 ## Contribute a pack
 
 Fork this repository and open a pull request adding one folder under `packs/`.
@@ -49,4 +71,4 @@ with flat names, pack assets, license, and attribution. The source revision
 identifies the accepted contributor commit. The asset revision independently
 identifies the downloadable bytes. See [Visor #359](https://github.com/hyperme-sh/visor/issues/359).
 
-The repository tooling and guide use the [MIT license](LICENSE). Each pack declares its own media license. Desk Bot includes an original synthesized two-tone voice cue.
+The repository tooling and guide use the [MIT license](LICENSE). Each pack declares its own media license.

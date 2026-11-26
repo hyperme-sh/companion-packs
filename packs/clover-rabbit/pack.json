@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "name": "Clover Rabbit",
+  "sprites": {
+    "default": {
+      "frames": [
+        "idle.png"
+      ]
+    },
+    "state:sleeping": {
+      "frames": [
+        "sleeping.png"
+      ]
+    }
+  },
+  "voice": {
+    "state:automation": "working.wav",
+    "state:sleeping": "sleeping.wav"
+  }
+}

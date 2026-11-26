@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "name": "Scout Dog",
+  "sprites": {
+    "default": {
+      "frames": [
+        "idle.png"
+      ]
+    },
+    "state:automation": {
+      "frames": [
+        "idle.png",
+        "wag.png"
+      ],
+      "ms_per_frame": 190,
+      "loop": true
+    }
+  },
+  "voice": {
+    "state:automation": "working.wav",
+    "state:paused": "paused.wav"
+  }
+}
