@@ -1,0 +1,15 @@
+{
+  "frames": {
+    "idle.png": "open",
+    "blink.png": "blink"
+  },
+  "voice": {
+    "variant": "en-us+f2",
+    "pitch": 59,
+    "speed": 157,
+    "lines": {
+      "working.wav": "I'm on it.",
+      "paused.wav": "Taking a break."
+    }
+  }
+}

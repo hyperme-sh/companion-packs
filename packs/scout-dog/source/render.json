@@ -1,0 +1,15 @@
+{
+  "frames": {
+    "idle.png": "rest-tail",
+    "wag.png": "wag-tail"
+  },
+  "voice": {
+    "variant": "en-us+m3",
+    "pitch": 36,
+    "speed": 151,
+    "lines": {
+      "working.wav": "Let's get to work.",
+      "paused.wav": "I'll wait here."
+    }
+  }
+}

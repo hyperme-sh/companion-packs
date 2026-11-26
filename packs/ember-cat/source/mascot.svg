@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="520" viewBox="0 0 400 520">
+  <defs>
+    <linearGradient id="fur" x2="0" y2="1">
+      <stop stop-color="#FFBB76"/>
+      <stop offset="1" stop-color="#EB7846"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="200" cy="459" rx="130" ry="19" fill="#35233B" fill-opacity=".17"/>
+  <g stroke="#462637" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M270 407c71 1 99-41 89-78-5-16-23-22-33-12-10 10 2 26-7 38-10 12-30 15-50 11Z" fill="#ED8149"/>
+    <path d="M340 312c8 0 15 6 18 15 2 5 3 10 3 14" fill="none" stroke="#C45B40"/>
+    <path d="M118 420c0-82 39-135 88-135s86 54 86 135c0 28-28 36-86 36s-88-8-88-36Z" fill="url(#fur)"/>
+    <path d="M169 355c15 15 43 21 71 5 13 17 23 49 15 69-32 11-67 11-94 0-7-21-3-51 8-74Z" fill="#FFE4BA" stroke="none"/>
+    <path d="M111 219 97 131q-3-18 14-9l79 40q11-2 22 0l71-42q16-9 15 10l-7 93c11 13 18 31 18 51 0 53-48 81-110 81s-112-27-112-81c0-22 8-40 24-55Z" fill="url(#fur)"/>
+    <path d="m107 134 56 31-40 32Zm177-1-50 32 44 35Z" fill="#F39B9D" stroke="none"/>
+    <path d="m189 167 4 28m21-27-3 27m-38-23 6 19m53-19-7 20" stroke="#CB6142" stroke-width="6"/>
+    <path d="M106 281c13-10 37-14 57-2 15 8 23 11 36 11s22-3 37-11c21-12 44-8 57 2-7 38-44 60-94 60s-86-22-93-60Z" fill="#FFF0D1" stroke="none"/>
+    <g data-pose="open" stroke="none" fill="#462637">
+      <ellipse cx="152" cy="254" rx="13" ry="18"/>
+      <ellipse cx="246" cy="254" rx="13" ry="18"/>
+      <circle cx="155" cy="248" r="4" fill="#FFF9EE"/>
+      <circle cx="249" cy="248" r="4" fill="#FFF9EE"/>
+    </g>
+    <path data-pose="blink" display="none" d="M139 256q13 12 26 0m68 0q13 12 26 0" fill="none" stroke-width="5"/>
+    <path d="M188 287q11-6 22 0l-11 10Z" fill="#C06676" stroke-width="4"/>
+    <path d="M199 296q0 13-12 13m12-13q0 13 12 13M112 290l-29-7m29 17-31 3m205-13 30-7m-30 17 32 3" fill="none" stroke-width="4"/>
+    <path d="M139 437q16-29 42-6m40 0q26-23 42 6" fill="none" stroke="#A6503C" stroke-width="5"/>
+  </g>
+</svg>

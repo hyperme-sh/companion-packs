@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "name": "Ember Cat",
+  "sprites": {
+    "default": {
+      "frames": [
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "idle.png",
+        "blink.png"
+      ],
+      "ms_per_frame": 210,
+      "loop": true
+    }
+  },
+  "voice": {
+    "state:automation": "working.wav",
+    "state:paused": "paused.wav"
+  }
+}
